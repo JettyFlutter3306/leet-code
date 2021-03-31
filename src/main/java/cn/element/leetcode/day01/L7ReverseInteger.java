@@ -34,7 +34,7 @@ public class L7ReverseInteger {
 
         int neg = x < 0 ? -1 : 1;//判断是否是小于0的数
 
-        x *= neg;//给x加上符号
+        x *= neg;//假如x是负数,那么就让它乘上-1变成正数
 
         int result = 0;
 

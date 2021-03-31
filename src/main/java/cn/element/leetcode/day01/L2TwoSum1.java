@@ -59,6 +59,38 @@ public class L2TwoSum1 {
         return head;    //返回头结点
     }
 
+    //定义一个单链表
+    static class ListNode{
+
+        int val;
+
+        ListNode next;
+
+        ListNode(){
+
+        }
+
+        ListNode(int val){
+            this.val = val;
+        }
+
+        ListNode(int val,ListNode next){
+            this.val = val;
+            this.next = next;
+        }
+
+        @Override
+        public String toString() {
+
+            List<Integer> list = new ArrayList<>();
+
+            for (ListNode p = this; p != null ; p = p.next) {
+                list.add(p.val);
+            }
+
+            return list.toString();
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -76,43 +108,9 @@ public class L2TwoSum1 {
         ListNode listNode = addTwoNumbers(l1, l2);
 
         System.out.println(listNode);
-
-
-
-
-
     }
+
+
 }
 
-//定义一个单链表
-class ListNode{
 
-    int val;
-
-    ListNode next;
-
-    ListNode(){
-
-    }
-
-    ListNode(int val){
-        this.val = val;
-    }
-
-    ListNode(int val,ListNode next){
-        this.val = val;
-        this.next = next;
-    }
-
-    @Override
-    public String toString() {
-
-        List<Integer> list = new ArrayList<>();
-
-        for (ListNode p = this; p != null ; p = p.next) {
-            list.add(p.val);
-        }
-
-        return list.toString();
-    }
-}
