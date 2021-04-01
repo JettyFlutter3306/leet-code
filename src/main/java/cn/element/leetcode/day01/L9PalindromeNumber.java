@@ -33,10 +33,31 @@ public class L9PalindromeNumber {
      */
     public boolean isPalindrome(int x) {
 
-        return false;
+        if(x == 0){
+            return true;
+        }
+
+        if(x < 0 || x % 10 == 0){
+            return false;
+        }
+
+        int n = x % 10;//拿到个位
+
+        int result = x;  //保存x原来的值
+
+        while(x / 10 != 0){
+            x /= 10;
+
+            n = n * 10 + x % 10;  //乘10往左移动一位,然后加上x右移一位的个位
+        }
+
+        return result == n;
     }
 
     public static void main(String[] args) {
 
+        L9PalindromeNumber a = new L9PalindromeNumber();
+
+        System.out.println(a.isPalindrome(0));
     }
 }
