@@ -1,4 +1,4 @@
-package cn.element.leetcode.day01;
+package cn.element.leetcode.stage1;
 
 /**
  * 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行Z 字形排列。

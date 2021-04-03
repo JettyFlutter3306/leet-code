@@ -1,4 +1,4 @@
-package cn.element.leetcode.day01;
+package cn.element.leetcode.stage1;
 
 import java.util.HashMap;
 import java.util.Map;
