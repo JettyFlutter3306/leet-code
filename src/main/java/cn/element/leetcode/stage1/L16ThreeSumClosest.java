@@ -1,7 +1,5 @@
 package cn.element.leetcode.stage1;
 
-import org.omg.CORBA.INTERNAL;
-
 import java.util.Arrays;
 
 /**
