@@ -64,7 +64,7 @@ public class L17LetterCombinations {
             for (int i = 0; i < letterCount; i++) {
                 combination.append(letters.charAt(i));
 
-                backTrack(collector,digits,index+1,combination);
+                backTrack(collector,digits,index+1,combination);  //递归调用
 
                 combination.deleteCharAt(index);
             }
