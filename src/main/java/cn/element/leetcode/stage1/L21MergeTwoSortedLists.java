@@ -1,5 +1,7 @@
 package cn.element.leetcode.stage1;
 
+import cn.element.leetcode.common.ListNode;
+
 /**
  * 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的.
  *
@@ -16,24 +18,6 @@ package cn.element.leetcode.stage1;
  * 输出：[0]
  */
 public class L21MergeTwoSortedLists {
-
-    class ListNode {
-
-        int val;
-
-        ListNode next;
-
-        ListNode() {}
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
 
     //暴力解法,时间复杂度O(M+N) 空间复杂度O(1)
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -55,7 +39,7 @@ public class L21MergeTwoSortedLists {
             prev = prev.next;
         }
 
-        prev.next = l1 == null ? l2 : l1;
+        prev.next = l1 == null ? l2 : l1;  //这一步对开始值l1 == null || l2 == null容错
 
         return dummy.next;
     }

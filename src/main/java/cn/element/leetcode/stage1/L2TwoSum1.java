@@ -1,5 +1,7 @@
 package cn.element.leetcode.stage1;
 
+import cn.element.leetcode.common.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +24,7 @@ import java.util.List;
  */
 public class L2TwoSum1 {
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         ListNode head = null,tail = null;//定义一个指向头结点的引用和一个指向尾结点的引用
         int carry = 0;                  //定义进位
@@ -59,41 +61,11 @@ public class L2TwoSum1 {
         return head;    //返回头结点
     }
 
-    //定义一个单链表
-    static class ListNode{
-
-        int val;
-
-        ListNode next;
-
-        ListNode(){
-
-        }
-
-        ListNode(int val){
-            this.val = val;
-        }
-
-        ListNode(int val,ListNode next){
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-
-            List<Integer> list = new ArrayList<>();
-
-            for (ListNode p = this; p != null ; p = p.next) {
-                list.add(p.val);
-            }
-
-            return list.toString();
-        }
-    }
 
 
     public static void main(String[] args) {
+
+        L2TwoSum1 a = new L2TwoSum1();
 
         //定义342
         ListNode l1 = new ListNode(2);
@@ -105,7 +77,7 @@ public class L2TwoSum1 {
         l2.next = new ListNode(6);
         l2.next.next = new ListNode(4);
 
-        ListNode listNode = addTwoNumbers(l1, l2);
+        ListNode listNode = a.addTwoNumbers(l1, l2);
 
         System.out.println(listNode);
     }

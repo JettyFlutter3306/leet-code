@@ -1,5 +1,7 @@
 package cn.element.leetcode.stage1;
 
+import cn.element.leetcode.common.ListNode;
+
 /**
  * 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
  *
@@ -79,48 +81,6 @@ public class L19RemoveNthNodeFromEndOfList {
         chaser.next = chaser.next.next;
 
         return head;
-    }
-
-    static class ListNode {
-
-        int val;
-
-        ListNode next;
-
-        ListNode() {}
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-
-            StringBuilder sb = new StringBuilder();
-
-            ListNode p = this;
-
-            sb.append("(");
-
-            while (p != null){
-                if(p.next == null){
-                    sb.append(p.val).append(")");
-
-                    break;
-                }
-
-                sb.append(p.val).append(",");
-
-                p = p.next;
-            }
-
-            return sb.toString();
-        }
     }
 
     public static void main(String[] args) {
