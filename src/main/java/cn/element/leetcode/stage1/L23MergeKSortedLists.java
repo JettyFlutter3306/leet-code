@@ -64,4 +64,8 @@ public class L23MergeKSortedLists {
         return temp.next;
     }
 
+    public static void main(String[] args) {
+
+    }
+
 }
