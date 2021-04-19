@@ -33,7 +33,7 @@ import java.util.Arrays;
  * 解释：函数应该返回新的长度 5, 并且 nums 中的前五个元素为 0, 1, 3, 0, 4。
  * 注意这五个元素可为任意顺序。你不需要考虑数组中超出新长度后面的元素。
  */
-public class L26RemoveElement {
+public class L27RemoveElement {
 
     /**
      * 使用双指针法
@@ -61,7 +61,7 @@ public class L26RemoveElement {
 
     public static void main(String[] args) {
 
-        L26RemoveElement a = new L26RemoveElement();
+        L27RemoveElement a = new L27RemoveElement();
 
         int[] arr = {3,2,2,3};
 
