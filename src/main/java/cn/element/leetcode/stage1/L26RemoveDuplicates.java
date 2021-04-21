@@ -37,7 +37,7 @@ import java.util.*;
 public class L26RemoveDuplicates {
 
     /**
-     * 还是考虑使用双指针法
+     * 还是考虑使用双指针法implement-strstr
      * 定义一个慢指针和一个快指针
      * 定义了一个Set集合时间复杂度较高,但是空间复杂度较低
      */
