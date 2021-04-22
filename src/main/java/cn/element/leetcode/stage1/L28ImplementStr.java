@@ -55,25 +55,33 @@ public class L28ImplementStr {
     /**
      * KMP算法
      * Knuth-Morris-Pratt 算法的核心为前缀函数，记作 π(i)，其定义如下：
-     * 对于长度为 mm 的字符串 ss，其前缀函数 π(i)(0 <= i < m)π(i)(0 ≤ i < m) 表示 ss 的子串 s[0:i]s[0:i] 的最长的相等的真前缀与真后缀的长度。
+     * 对于长度为 m 的字符串 s，其前缀函数 π(i)(0 <= i < m)π(i)(0 ≤ i < m) 表示 ss 的子串 s[0:i] 的最长的相等的真前缀与真后缀的长度。
      * 特别地，如果不存在符合条件的前后缀，那么 π(i) = 0π(i)=0。其中真前缀与真后缀的定义为不等于自身的的前缀与后缀。
-     * 我们举个例子说明：字符串 aabaaabaabaaab 的前缀函数值依次为 0,1,0,1,2,2,30,1,0,1,2,2,3。
-     * π(0) = 0π(0)=0，因为 aa 没有真前缀和真后缀，根据规定为 00（可以发现对于任意字符串 \π(0)=0π(0)=0 必定成立）；
-     * π(1) = 1π(1)=1，因为 aaaa 最长的一对相等的真前后缀为 aa，长度为 11；
-     * π(2) = 0π(2)=0，因为 aabaab 没有对应真前缀和真后缀，根据规定为 00；
-     * π(3) = 1π(3)=1，因为 aabaaaba 最长的一对相等的真前后缀为 aa，长度为 11；
-     * π(4) = 2π(4)=2，因为 aabaaaabaa 最长的一对相等的真前后缀为 aaaa，长度为 22；
-     * π(5) = 2π(5)=2，因为 aabaaaaabaaa 最长的一对相等的真前后缀为 aaaa，长度为 22；
-     * π(6) = 3π(6)=3，因为 aabaaabaabaaab 最长的一对相等的真前后缀为 aabaab，长度为 33。
+     * 我们举个例子说明：字符串 aabaaab 的前缀函数值依次为 0,1,0,1,2,2,3
+     * π(0) = 0，因为 a 没有真前缀和真后缀，根据规定为 0（可以发现对于任意字符串 π(0)=0 必定成立）；
+     * π(1) = 1，因为 aa 最长的一对相等的真前后缀为 a，长度为 1；
+     * π(2) = 0，因为 aab 没有对应真前缀和真后缀，根据规定为 0；
+     * π(3) = 1，因为 aaba 最长的一对相等的真前后缀为 a，长度为 1；
+     * π(4) = 2，因为 aabaa 最长的一对相等的真前后缀为 aa，长度为 2；
+     * π(5) = 2，因为 aabaaa 最长的一对相等的真前后缀为 aa，长度为 2；
+     * π(6) = 3，因为 aabaaab 最长的一对相等的真前后缀为 aab，长度为 3。
      * 有了前缀函数，我们就可以快速地计算出模式串在主串中的每一次出现。
-     * @param haystack      模式串
-     * @param needle        目标串
+     *
+     * 第一部分是求 needle 部分的前缀函数，我们需要保留这部分的前缀函数值。
+     * 第二部分是求 haystack 部分的前缀函数，我们无需保留这部分的前缀函数值。
+     * 只需要用一个变量记录上一个位置的前缀函数值即可。
+     * 当某个位置的前缀函数值等于 m 时，
+     * 说明我们就找到了一次字符串 needle 在字符串 haystack 中的出现（因为此时真前缀恰为字符串 needle，
+     * 真后缀为以当前位置为结束位置的字符串 haystack 的子串，我们计算出起始位置，将其返回即可。
+     *
+     * @param haystack      目标串
+     * @param needle        模式串
      * @return              索引
      */
     public int strStr1(String haystack, String needle) {
 
-        int n = haystack.length();  //模式串的长度
-        int m = needle.length();  //目标串的长度
+        int n = haystack.length();  //目标串的长度
+        int m = needle.length();  //模式串的长度
 
         if(m == 0){
             return 0;
@@ -114,7 +122,7 @@ public class L28ImplementStr {
 
         L28ImplementStr a = new L28ImplementStr();
 
-        System.out.println(a.strStr1("aaaaa","bba"));
+//        System.out.println(a.strStr1("aaaaa","bba"));
         System.out.println(a.strStr1("hello","ll"));
 
     }
