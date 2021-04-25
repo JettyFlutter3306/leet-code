@@ -79,7 +79,7 @@ public class L30SubstringWithConcatenation {
 
                     count++;
 
-                    /**
+                    /*
                      * 如果这个单词出现的次数大于words[]中它对应的次数，又由于每次匹配和words长度相等的子串
                      * 如 ["foo","bar","foo","the"]  "| foobarfoobar| foothe"
                      * 第二个bar虽然是words[]中的单词，但是次数抄了，那么右移一个单词长度后 "|barfoobarfoo|the"
