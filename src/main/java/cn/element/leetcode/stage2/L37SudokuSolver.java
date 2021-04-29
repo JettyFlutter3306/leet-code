@@ -41,11 +41,11 @@ import java.util.List;
  */
 public class L37SudokuSolver {
 
-    private boolean[][] line = new boolean[9][9];
-    private boolean[][] column = new boolean[9][9];
-    private boolean[][][] block = new boolean[3][3][9];
+    private final boolean[][] line = new boolean[9][9];
+    private final boolean[][] column = new boolean[9][9];
+    private final boolean[][][] block = new boolean[3][3][9];
     private boolean valid = false;
-    private List<int[]> spaces = new ArrayList<>();
+    private final List<int[]> spaces = new ArrayList<>();
 
     public void solveSudoku(char[][] board) {
 
