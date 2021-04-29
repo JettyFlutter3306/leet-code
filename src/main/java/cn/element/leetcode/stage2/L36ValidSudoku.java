@@ -1,7 +1,6 @@
 package cn.element.leetcode.stage2;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 请你判断一个9x9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。
@@ -47,30 +46,33 @@ public class L36ValidSudoku {
 
     public boolean isValidSudoku(char[][] board) {
 
+        //创建三个HashMap数组,容量为9,用于记录数字出现的次数
         HashMap<Integer,Integer>[] rows = new HashMap[9];
         HashMap<Integer,Integer>[] columns = new HashMap[9];
         HashMap<Integer,Integer>[] boxes = new HashMap[9];
 
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 9; i++) {  //对数组进行逐个赋值
             rows[i] = new HashMap<>();
             columns[i] = new HashMap<>();
             boxes[i] = new HashMap<>();
         }
 
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 9; i++) {  //遍历 9 * 9 数独,一次遍历
             for (int j = 0; j < 9; j++) {
-                char num = board[i][j];
+                char num = board[i][j];  //拿到对应的字符
 
                 if(num != '.'){
-                    int n = (int) num;
+                    int n = (int) num;  //拿到矩阵对应的数字
 
-                    int boxIndex = (i / 3) * 3 + j / 3;
+                    int boxIndex = (i / 3) * 3 + j / 3;  //获得九宫格的位置索引
 
-                    rows[i].put(n,rows[i].getOrDefault(n,0) + 1);
-                    columns[j].put(n,columns[j].getOrDefault(n,0) + 1);
-                    boxes[boxIndex].put(n,boxes[boxIndex].getOrDefault(n,0) + 1);
+                    rows[i].put(n,rows[i].getOrDefault(n,0) + 1);  //记录一行数字的出现次数
 
-                    if(rows[i].get(n) > 1 || columns[j].get(n) > 1 || boxes[boxIndex].get(n) > 1){
+                    columns[j].put(n,columns[j].getOrDefault(n,0) + 1);  //记录一列数字出现的次数
+
+                    boxes[boxIndex].put(n,boxes[boxIndex].getOrDefault(n,0) + 1);  //记录一个九宫格内数字出现的次数
+
+                    if(rows[i].get(n) > 1 || columns[j].get(n) > 1 || boxes[boxIndex].get(n) > 1){  //假如有一个数字出现了超过一次以上那么就返回false
                         return false;
                     }
                 }
