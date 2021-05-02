@@ -46,39 +46,41 @@ public class L39CombinationSum {
             return lists;
         }
 
-        Deque<Integer> path = new ArrayDeque<>();
+        Arrays.sort(candidates);  //排序是剪枝的前提
 
-        dfs(candidates,0,len,target,path,lists);
+        Stack<Integer> stack = new Stack<>();
+
+        dfs(candidates,0,len,target,stack,lists);
 
         return lists;
     }
 
     /**
-     *
+     * 剪枝提速
      * @param candidates        候选数组
      * @param begin             搜索起点
      * @param len               冗余变量,是candidates里的属性,可以传
      * @param target            每减去一个元素,目标值减小
-     * @param path              从根结点到叶子结点的路径是一个栈
+     * @param stack              从根结点到叶子结点的路径是一个栈
      * @param res               结果集列表
      */
-    public void dfs(int[] candidates, int begin, int len, int target, Deque<Integer> path,List<List<Integer>> res){
-
-        if(target < 0){  //target为负数和为0的时候不在产生新的孩子结点
-            return;
-        }
+    public void dfs(int[] candidates, int begin, int len, int target, Stack<Integer> stack,List<List<Integer>> res){
 
         if(target == 0){
-            res.add(new ArrayList<>(path));
+            res.add(new ArrayList<>(stack));
             return;
         }
 
         for (int i = begin; i < len; i++) {  //重点是理解这里从begin开始搜索的语义
-            path.addLast(candidates[i]);
+            if(target - candidates[i] < 0){  //target为负数和为0的时候不在产生新的孩子结点,从这里开始剪枝
+                break;
+            }
 
-            dfs(candidates,i,len,target-candidates[i],path,res);  //注意,由于每一个元素可以重复使用,下一轮搜索的起点依然是i
+            stack.push(candidates[i]);
 
-            path.removeLast();  //状态重置
+            dfs(candidates,i,len,target-candidates[i],stack,res);  //注意,由于每一个元素可以重复使用,下一轮搜索的起点依然是i
+
+            stack.pop();  //状态重置
         }
     }
 
@@ -93,6 +95,5 @@ public class L39CombinationSum {
         List<List<Integer>> lists = a.combinationSum(candidates, target);
 
         lists.forEach(System.out::println);
-
     }
 }
