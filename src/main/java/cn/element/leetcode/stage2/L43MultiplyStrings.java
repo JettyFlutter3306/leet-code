@@ -24,7 +24,7 @@ public class L43MultiplyStrings {
         int m = num1.length(), n = num2.length();
 
         for (int i = n - 1; i >= 0; i--) {
-            StringBuffer curr = new StringBuffer();
+            StringBuilder curr = new StringBuilder();
 
             int add = 0;
 
@@ -56,7 +56,7 @@ public class L43MultiplyStrings {
     public String addStrings(String num1, String num2) {
         int i = num1.length() - 1, j = num2.length() - 1, add = 0;
 
-        StringBuffer ans = new StringBuffer();
+        StringBuilder ans = new StringBuilder();
 
         while (i >= 0 || j >= 0 || add != 0) {
             int x = i >= 0 ? num1.charAt(i) - '0' : 0;
