@@ -17,6 +17,9 @@ import java.util.*;
  */
 public class L49GroupAnagrams {
 
+    /**
+     * 思路:排序
+     */
     public List<List<String>> groupAnagrams(String[] strs) {
 
         Map<String,List<String>> map = new HashMap<>();
