@@ -131,6 +131,9 @@ public class L42TrappingRainWater {
         return ans;
     }
 
+    /**
+     * 使用双指针
+     */
     public int trap3(int[] height) {
         int left = 0, right = height.length - 1;
 
