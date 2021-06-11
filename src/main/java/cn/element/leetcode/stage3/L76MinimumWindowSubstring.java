@@ -24,30 +24,30 @@ public class L76MinimumWindowSubstring {
 
         int tLen = t.length();
 
-        for (int i = 0; i < tLen; i++) {
+        for (int i = 0; i < tLen; i++) {  //遍历字符串t
             char ch = t.charAt(i);
 
-            ori.put(ch,ori.getOrDefault(ch,0) + 1);
+            ori.put(ch,ori.getOrDefault(ch,0) + 1);  //记录字符串t每个字符出现的次数
         }
 
-        int l = 0;
-        int r = -1;
+        int l = 0;  //左边界
+        int r = -1;  //右边界
         int len = Integer.MAX_VALUE;
         int ansL = -1;
         int ansR = -1;
 
-        int sLen = s.length();
+        int sLen = s.length();  //获取字符串s的长度
 
-        while(r < sLen){
-            r++;
+        while(r < sLen){  //遍历字符串s
+            r++;  //右窗口往右滑动
 
-            if(r < sLen && ori.containsKey(s.charAt(r))){
-                cnt.put(s.charAt(r),cnt.getOrDefault(s.charAt(r),0) + 1);
+            if(r < sLen && ori.containsKey(s.charAt(r))){  //哈希表ori包含字符串在r位置上的字符
+                cnt.put(s.charAt(r),cnt.getOrDefault(s.charAt(r),0) + 1);  //用哈希表cnt记录字符出现的次数
             }
 
             while(this.check() && l <= r){
                 if(r - l + 1 < len){
-                    len = r - l + 1;
+                    len = r - l + 1;  //计算滑动窗口的长度
                     ansL = l;
                     ansR = l + len;
                 }
@@ -56,13 +56,17 @@ public class L76MinimumWindowSubstring {
                     cnt.put(s.charAt(l),cnt.getOrDefault(s.charAt(l),0) - 1);
                 }
 
-                l++;
+                l++;  //窗口左边界右移
             }
         }
 
         return ansL == -1 ? "" : s.substring(ansL,ansR);
     }
 
+    /**
+     * 检查哈希表包含字符的个数是否相等,不等则返回false
+     * 表示窗口是否包含目标串
+     */
     public boolean check(){
 
         for (Map.Entry<Character, Integer> entry : ori.entrySet()) {
