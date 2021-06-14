@@ -31,9 +31,11 @@ public class L74SearchA2DMatrix {
                 while(left <= right){
                     if(matrix[i][mid] < target){
                         left = mid + 1;
+
                         mid = (left + right) / 2;
                     }else if(matrix[i][mid] > target){
                         right = mid - 1;
+
                         mid = (left + right) / 2;
                     }else{
                         return true;
@@ -56,7 +58,6 @@ public class L74SearchA2DMatrix {
         int target = 1;
 
         System.out.println(a.searchMatrix(matrix, target));
-
     }
 
 }
