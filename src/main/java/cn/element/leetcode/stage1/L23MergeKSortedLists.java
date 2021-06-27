@@ -1,6 +1,7 @@
 package cn.element.leetcode.stage1;
 
 import cn.element.leetcode.common.ListNode;
+import cn.element.leetcode.common.ListNodes;
 
 /**
  * 给你一个链表数组，每个链表都已经按升序排列。
@@ -66,6 +67,17 @@ public class L23MergeKSortedLists {
 
     public static void main(String[] args) {
 
+        L23MergeKSortedLists a = new L23MergeKSortedLists();
+
+        int[] arr0 = {1,2,3,4,5,6};
+        int[] arr1 = {2,3,7,8,9};
+
+        ListNode head1 = ListNodes.createListNode(arr0);
+        ListNode head2 = ListNodes.createListNode(arr1);
+
+        ListNode[] listNodes = new ListNode[]{head1.next,head2.next};
+
+        System.out.println(a.mergeKLists(listNodes));
     }
 
 }
