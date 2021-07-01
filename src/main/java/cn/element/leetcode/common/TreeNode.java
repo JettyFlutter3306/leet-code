@@ -56,6 +56,27 @@ public class TreeNode {
         }
     }
 
+    /**
+     * 获取二叉树的高度
+     */
+    public int height() {
+
+        return height(this);
+    }
+
+    private int height(TreeNode p) {
+
+        int h = 0;
+
+        if(p != null){
+            h = Math.max(height(p.left),h);
+
+            h = Math.max(height(p.right),h);
+        }
+
+        return h + 1;
+    }
+
     public static void main(String[] args) {
 
         TreeNode node = new TreeNode(5);
@@ -66,4 +87,6 @@ public class TreeNode {
 
         System.out.println(node);
     }
+
+
 }
