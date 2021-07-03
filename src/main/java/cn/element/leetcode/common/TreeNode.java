@@ -77,16 +77,5 @@ public class TreeNode {
         return h + 1;
     }
 
-    public static void main(String[] args) {
-
-        TreeNode node = new TreeNode(5);
-        node.left = new TreeNode(1);
-        node.left.right = new TreeNode(3);
-        node.right = new TreeNode(7);
-        node.right.left = new TreeNode(15);
-
-        System.out.println(node);
-    }
-
 
 }
