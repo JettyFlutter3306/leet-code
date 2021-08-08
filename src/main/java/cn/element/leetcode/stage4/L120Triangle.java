@@ -50,7 +50,7 @@ public class L120Triangle {
         int minTotal = dp[n - 1][0];
 
         for (int i = 1; i < n; i++) {
-            minTotal = Math.min(minTotal, dp[n- 1][i]);
+            minTotal = Math.min(minTotal, dp[n - 1][i]);  //答案就在dp的最后一行,挨个比较即可出结果
         }
 
         return minTotal;
