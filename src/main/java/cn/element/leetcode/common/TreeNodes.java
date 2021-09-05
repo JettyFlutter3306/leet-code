@@ -51,17 +51,17 @@ public class TreeNodes {
             if(2 * i + 1 < value.length){
                 if(value[2 * i + 1] != null){
                     p.left = new TreeNode(value[2 * i + 1]);
-                }
 
-                queue.add(p.left);
+                    queue.add(p.left);
+                }
             }
 
             if(2 * i + 2 < value.length){
                 if(value[2 * i + 2] != null){
                     p.right = new TreeNode(value[2 * i + 2]);
-                }
 
-                queue.add(p.right);
+                    queue.add(p.right);
+                }
             }
 
             p = queue.poll();
