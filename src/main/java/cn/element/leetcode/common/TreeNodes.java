@@ -14,7 +14,6 @@ public class TreeNodes {
      * 用先根遍历序列构建二叉树结点
      */
     public static TreeNode createTreeNode(Integer[] value) {
-
         TreeNode p = null;
 
         if(i < value.length){
@@ -38,7 +37,6 @@ public class TreeNodes {
      * 根据层次遍历序列构建一棵二叉树
      */
     public static TreeNode createTreeNodeByLevel(Integer[] value) {
-
         TreeNode p = new TreeNode(value[0]);
 
         TreeNode q = p;
@@ -47,7 +45,7 @@ public class TreeNodes {
 
         int i = 0;
 
-        while(p != null) {
+        while (p != null) {
             if(2 * i + 1 < value.length){
                 if(value[2 * i + 1] != null){
                     p.left = new TreeNode(value[2 * i + 1]);
@@ -76,8 +74,7 @@ public class TreeNodes {
      * 打印树形结构图
      */
     public static void show(TreeNode node) {
-
-        if(node == null){
+        if (node == null) {
             System.out.println("EMPTY TREE");
         }
 
@@ -117,8 +114,7 @@ public class TreeNodes {
     }
 
     private static void writeArray(TreeNode node, int rowIndex, int columnIndex, String[][] res, int treeDepth) {
-
-        if(node == null){  //保证输入的树不为空
+        if (node == null) {  //保证输入的树不为空
             return;
         }
 
@@ -126,7 +122,7 @@ public class TreeNodes {
 
         int currLevel = (rowIndex + 1) / 2;  //计算当前位于树的第几层
 
-        if(currLevel == treeDepth){  //若到了最后一层,则返回
+        if (currLevel == treeDepth) {  //若到了最后一层,则返回
             return;
         }
 
