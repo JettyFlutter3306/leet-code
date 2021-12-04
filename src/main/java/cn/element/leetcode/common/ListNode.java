@@ -22,7 +22,6 @@ public class ListNode {
 
     @Override
     public String toString() {
-
         List<Integer> list = new ArrayList<>();
 
         for (ListNode p = this; p != null ; p = p.next) {

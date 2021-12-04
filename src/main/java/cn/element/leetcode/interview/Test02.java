@@ -22,7 +22,6 @@ public class Test02 {
 
             set.add(temp);
 
-
             num /= 10;
         }
 
