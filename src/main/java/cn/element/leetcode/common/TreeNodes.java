@@ -16,16 +16,15 @@ public class TreeNodes {
     public static TreeNode createTreeNode(Integer[] value) {
         TreeNode p = null;
 
-        if(i < value.length){
+        if (i < value.length) {
             Integer element = value[i];  //拿到先根遍历序列的对应元素
 
             i++;  //i自增1
 
-            if(element != null){  //不能 element != "^",因为 T 不一定是 String
+            if (element != null) {  //不能 element != "^",因为 T 不一定是 String
                 p = new TreeNode(element);  //创建叶子结点
 
                 p.left = createTreeNode(value);  //创建 p 的左子树,递归调用
-
                 p.right = createTreeNode(value);  //创建 p 的右子树,递归调用
             }
         }
@@ -38,7 +37,6 @@ public class TreeNodes {
      */
     public static TreeNode createTreeNodeByLevel(Integer[] value) {
         TreeNode p = new TreeNode(value[0]);
-
         TreeNode q = p;
 
         Queue<TreeNode> queue = new LinkedList<>();
@@ -46,16 +44,16 @@ public class TreeNodes {
         int i = 0;
 
         while (p != null) {
-            if(2 * i + 1 < value.length){
-                if(value[2 * i + 1] != null){
+            if (2 * i + 1 < value.length) {
+                if (value[2 * i + 1] != null) {
                     p.left = new TreeNode(value[2 * i + 1]);
 
                     queue.add(p.left);
                 }
             }
 
-            if(2 * i + 2 < value.length){
-                if(value[2 * i + 2] != null){
+            if (2 * i + 2 < value.length) {
+                if (value[2 * i + 2] != null) {
                     p.right = new TreeNode(value[2 * i + 2]);
 
                     queue.add(p.right);
